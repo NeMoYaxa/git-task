@@ -12,4 +12,14 @@
   else
     Println(2);
   Println($'Количество дней в году: {if year.Divs(4) and not year.Divs(100) or year.Divs(400) then 366 else 365}');
+  var (year1, year2) := ReadInteger2('Введите 2 номера года:');
+  Assert(year1 > 0);
+  Assert(year2 > 0);
+  var cnt := 0;
+  for var i := year1 to year2 - 1 do
+    if i.Divs(4) and not i.Divs(100) or i.Divs(400) then
+      cnt += 366
+    else
+      cnt += 365;
+  Println($'Количество дней между годами: {cnt}');
 end.
